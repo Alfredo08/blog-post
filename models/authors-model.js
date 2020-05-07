@@ -42,6 +42,20 @@ const Authors = {
                 .catch( err => {
                     throw new Error( err );
                 });
+    },
+    getAuthorById : function( idUser ){
+        return authorCollection
+                .findOne({ id : idUser })
+                .then( author => {
+                    if( !author ){
+                        throw new Error( "Author not found" );
+                    }
+                    return author;
+                })
+                .catch( err => {
+                    throw new Error( err );
+                });
+
     }
 }
 
